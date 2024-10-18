@@ -1,0 +1,101 @@
+- name: Install Docker
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Update package cache
+    ansible.builtin.apt:
+      update_cache: yes
+  - name: Install docker
+    ansible.builtin.apt:
+      pkg:
+      - docker.io
+      - git
+  - name: Check if cgroups are enabled
+    command: cat /boot/firmware/cmdline.txt
+    register: cmdlineContent
+  - name: Enable cgroups
+    command: sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1/' /boot/firmware/cmdline.txt
+    when: "'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1' not in cmdlineContent.stdout"
+    notify: 
+    - Restart pi
+  handlers:
+  - name: Restart pi
+    ansible.builtin.reboot:
+
+- name: Install k3s bootstrap server
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: ensures /etc/rancher/k3s dir exists
+    file: 
+      path: /etc/rancher/k3s
+      state: directory
+  - name: Copy private registry configuration
+    copy:
+      src: ./k3s/registries.yaml
+      dest: /etc/rancher/k3s/registries.yaml
+  - name: Install k3s bootstrap server
+    shell: curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={{ k3s_version }} K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="server --embedded-registry" sh -s -
+  - name: Extract K3S_TOKEN from server output
+    command: cat /var/lib/rancher/k3s/server/node-token
+    register: k3s_token
+    failed_when: k3s_token is failed or k3s_token.stdout is undefined
+  - name: Set K3S_TOKEN as a fact
+    set_fact:
+      k3s_token: "{{ k3s_token.stdout }}"
+  - name: Install Kueue
+    shell: | 
+      kubectl apply --server-side -f https://github.com/kubernetes-sigs/kueue/releases/download/{{ kueue_version }}/manifests.yaml
+      kubectl wait deploy/kueue-controller-manager -nkueue-system --for=condition=available --timeout=5m
+      kubectl apply --server-side -f https://github.com/kubernetes-sigs/kueue/releases/download/{{ kueue_version }}/visibility-api.yaml
+      kubectl patch deployment kueue-controller-manager -n kueue-system -p '{"spec":{"template":{"spec":{"containers":[{"name":"manager","args":["--config=/controller_manager_config.yaml","--zap-log-level=2","--feature-gates=VisibilityOnDemand=true"]}]}}}}'
+  - name: Copy kueue configuration file
+    copy:
+      src: ./kueue/kueue-configuration.yaml
+      dest: /tmp/kueue-configuration.yaml
+  - name: Apply kueue configuration
+    shell: kubectl apply -f /tmp/kueue-configuration.yaml
+  - name: Create evaluation namespace
+    shell: kubectl create ns evaluation
+
+- name: Install k3s workers
+  become: true
+  hosts: workers
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: ensures /etc/rancher/k3s dir exists
+    file: 
+      path: /etc/rancher/k3s
+      state: directory
+  - name: Copy private registry configuration
+    copy:
+      src: ./k3s/registries.yaml
+      dest: /etc/rancher/k3s/registries.yaml
+  - name: Install k3s workers
+    shell: curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION={{ k3s_version }} K3S_URL=https://{{ hostvars['pimaster']['ansible_default_ipv4'].address }}:6443 K3S_TOKEN={{ hostvars['pimaster']['k3s_token'] }} sh -
+
+- name: Fetch k3s kubeconfig
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Fetch kubeconfig
+    fetch:
+      src: /etc/rancher/k3s/k3s.yaml
+      dest: k3sconfig
+      flat: true
+
+- name: Build dockerfiles and import to all nodes
+  become: true
+  hosts: pies
+  tasks:
+  - name: Git clone dockerfiles
+    shell: chdir=/tmp git clone https://github.com/kude-platform/dockerfiles.git
+  - name: Build dockerfiles
+    shell: chdir=/tmp/dockerfiles ./build-dockerfiles-and-import-to-k3s.sh
+  - name: Delete dockerfiles
+    shell: rm -rf /tmp/dockerfiles

@@ -1,0 +1,19 @@
+workers:
+  hosts:
+    piworker1:
+      ansible_host: pi-worker
+      ansible_user: pi
+
+bootstrapMaster:
+  hosts:
+    pimaster:
+      ansible_host: pi-master
+      ansible_user: pi
+
+pies:
+  children:
+    bootstrapMaster:
+    workers:
+  vars:
+    k3s_version: v1.29.7+k3s1
+    kueue_version: v0.8.0

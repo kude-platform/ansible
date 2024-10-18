@@ -1,0 +1,14 @@
+- name: Install k3s bootstrap server
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Install Prometheus
+    shell: | 
+      helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+      helm repo update
+      helm install prometheus prometheus-community/prometheus --kubeconfig /etc/rancher/k3s/k3s.yaml
+      kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext --kubeconfig /etc/rancher/k3s/k3s.yaml
+
+# todo: make global scrape interval configurable kubectl get configmap/prometheus-server --kubeconfig /etc/rancher/k3s/k3s.yaml -o json
+
+
