@@ -89,13 +89,4 @@
       dest: k3sconfig
       flat: true
 
-- name: Build dockerfiles and import to all nodes
-  become: true
-  hosts: pies
-  tasks:
-  - name: Git clone dockerfiles
-    shell: chdir=/tmp git clone https://github.com/kude-platform/dockerfiles.git
-  - name: Build dockerfiles
-    shell: chdir=/tmp/dockerfiles ./build-dockerfiles-and-import-to-k3s.sh
-  - name: Delete dockerfiles
-    shell: rm -rf /tmp/dockerfiles
+- import_playbook: build-dockerfiles.yaml
