@@ -1,0 +1,10 @@
+- name: Uninstall Kueue
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Uninstall Kueue
+    shell: | 
+      kubectl delete -k "github.com/kubernetes-sigs/kueue/config/default?ref=main"
+    ignore_errors: true

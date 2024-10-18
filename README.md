@@ -31,6 +31,18 @@ ansible-playbook install-monitoring.yaml -i inventory.yaml
 This playbook includes:
 - Installing prometheus
 
+## Uninstall kueue
+
+To uninstall the kueue components, you need to run the following command:
+
+```bash 
+ansible-playbook uninstall-kueue.yaml -i inventory.yaml
+```
+
+This playbook includes:
+- Removing the kueue components
+
+
 # Other how-to guides
 
 ## Add ssh key to machines
