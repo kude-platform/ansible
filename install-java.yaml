@@ -1,0 +1,19 @@
+- name: Install Java
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Add Amazon Coretto cert
+    shell:  wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+  - name: Add Amazon Corretto repository
+    apt_repository:
+      repo: deb https://apt.corretto.aws stable main
+      state: present
+  - name: Update package cache
+    ansible.builtin.apt:
+      update_cache: yes
+  - name: Install Java
+    ansible.builtin.apt:
+      pkg:
+      - java-11-amazon-corretto-jdk
