@@ -1,0 +1,14 @@
+- name: Install log collector
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy log collector deployment
+    copy:
+      src: ./log-collector/log-collector.yaml
+      dest: /tmp/log-collector.yaml
+  - name: Apply deployment
+    shell: kubectl apply -f /tmp/log-collector.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/log-collector.yaml
