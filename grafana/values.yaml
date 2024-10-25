@@ -1,0 +1,17 @@
+adminUser: admin
+adminPassword: admin
+service:
+  enabled: true
+  type: NodePort
+  nodePort: 32300
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Loki
+      type: loki
+      url: http://loki:3100
+      jsonData:
+        httpHeaderName1: 'X-Scope-OrgID'
+      secureJsonData:
+        httpHeaderValue1: '1'

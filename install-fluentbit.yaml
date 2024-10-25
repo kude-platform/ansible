@@ -1,0 +1,19 @@
+- name: Install fluentbit
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Delete fluent helm charts
+    shell: rm -rf /tmp/helm-charts
+  - name: Git clone fluent helm charts
+    shell: chdir=/tmp git clone https://github.com/fluent/helm-charts.git
+  - name: Copy fluent bit values config
+    copy:
+      src: ./fluentbit/values.yaml
+      dest: /tmp/helm-charts/charts/fluent-bit/values.yaml
+  - name: Helm install fluent bit
+    shell: chdir=/tmp/helm-charts/charts/fluent-bit helm install --kubeconfig /etc/rancher/k3s/k3s.yaml fluent-bit .
+    register: results
+  - debug:
+      var: results.stdout
+  - name: Delete fluent helm charts
+    shell: rm -rf /tmp/helm-charts

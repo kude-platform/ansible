@@ -1,0 +1,9 @@
+- name: Uninstall Loki
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Uninstall Loki
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml loki
+    ignore_errors: yes
+  - name: Uninstall Grafana
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml grafana

@@ -1,0 +1,9 @@
+- name: Uninstall fluentbit
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Helm uninstall fluent bit
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml fluent-bit
+    register: results
+  - debug:
+      var: results.stdout
