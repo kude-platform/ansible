@@ -1,0 +1,6 @@
+- name: Ping all hosts
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:

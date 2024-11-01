@@ -52,6 +52,9 @@ ansible-playbook uninstall-kueue.yaml -i inventory.yaml
 This playbook includes:
 - Removing the kueue components
 
+## Several other playbooks are available
+There are several other playbooks available in the repository that can be used to install or uninstall specific components. The usage of these playbooks is similar to the ones described above.
+
 
 # Other how-to guides
 

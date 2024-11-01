@@ -1,0 +1,36 @@
+- name: Uninstall Docker
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Remove all containers
+    shell: sudo k3s ctr image list -q | xargs sudo k3s ctr image del
+  - name: Uninstall docker
+    ansible.builtin.apt:
+      absent: yes
+      pkg:
+      - docker.io
+      - git
+
+- name: Uninstall k3s bootstrap server
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy private registry configuration
+    copy:
+      src: ./k3s/registries.yaml
+      dest: /etc/rancher/k3s/registries.yaml
+  - name: Uninstall k3s bootstrap server
+    shell: /usr/local/bin/k3s-uninstall.sh
+
+- name: Uninstall k3s workers
+  become: true
+  hosts: workers
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Install k3s workers
+    shell: /usr/local/bin/k3s-agent-uninstall.sh

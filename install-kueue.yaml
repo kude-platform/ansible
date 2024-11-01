@@ -1,0 +1,18 @@
+- name: Install kueue
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Install Kueue
+    shell: | 
+      kubectl apply --server-side -f https://github.com/kubernetes-sigs/kueue/releases/download/{{ kueue_version }}/manifests.yaml
+      kubectl wait deploy/kueue-controller-manager -nkueue-system --for=condition=available --timeout=5m
+      kubectl apply --server-side -f https://github.com/kubernetes-sigs/kueue/releases/download/{{ kueue_version }}/visibility-api.yaml
+      kubectl patch deployment kueue-controller-manager -n kueue-system -p '{"spec":{"template":{"spec":{"containers":[{"name":"manager","args":["--config=/controller_manager_config.yaml","--zap-log-level=2","--feature-gates=VisibilityOnDemand=true"]}]}}}}'
+  - name: Copy kueue configuration file
+    copy:
+      src: ./kueue/kueue-configuration.yaml
+      dest: /tmp/kueue-configuration.yaml
+  - name: Apply kueue configuration
+    shell: kubectl apply -f /tmp/kueue-configuration.yaml
