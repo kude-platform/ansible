@@ -1,0 +1,3 @@
+- import_playbook: uninstall-loki-grafana.yaml
+- import_playbook: uninstall-fluentbit.yaml
+- import_playbook: uninstall-platform.yaml
