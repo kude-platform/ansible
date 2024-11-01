@@ -1,0 +1,6 @@
+- name: Shutdown all
+  become: true
+  hosts: pies
+  tasks:
+  - name: Shutdown all
+    shell: sudo shutdown -h now
