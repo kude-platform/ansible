@@ -6,6 +6,7 @@
     ansible.builtin.ping:
   - name: Remove all containers
     shell: sudo k3s ctr image list -q | xargs sudo k3s ctr image del
+    ignore_errors: yes
   - name: Uninstall docker
     ansible.builtin.apt:
       state: absent
@@ -21,6 +22,11 @@
     ansible.builtin.ping:
   - name: Uninstall k3s bootstrap server
     shell: /usr/local/bin/k3s-uninstall.sh
+    ignore_errors: yes
+  - name: delete /etc/rancher dir
+    ansible.builtin.file:
+      state: absent
+      path: /etc/rancher
 
 - name: Uninstall k3s workers
   become: true
@@ -30,3 +36,8 @@
     ansible.builtin.ping:
   - name: Uninstall k3s workers
     shell: /usr/local/bin/k3s-agent-uninstall.sh
+    ignore_errors: yes
+  - name: delete /etc/rancher dir
+    ansible.builtin.file:
+      state: absent
+      path: /etc/rancher
