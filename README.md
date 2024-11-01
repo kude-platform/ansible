@@ -62,3 +62,8 @@ There are several other playbooks available in the repository that can be used t
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub pi@pi-master.local
 ```
+
+## Shutdown all machines
+```bash
+ansible all -i inventory-umr.yaml -m command 'sudo shutdown now'
+```

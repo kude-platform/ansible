@@ -16,6 +16,12 @@
     copy:
       src: ./grafana/values.yaml
       dest: /tmp/grafana-values.yaml
+  - name: Copy grafana dashboards
+    copy:
+      src: ./grafana/grafana-dashboard-configmap.yaml
+      dest: /tmp/grafana-dashboard-configmap.yaml
+  - name: Install configmap
+    shell: kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml apply -f /tmp/grafana-dashboard-configmap.yaml
   - name: Install Loki
     shell: | 
       helm repo add grafana https://grafana.github.io/helm-charts
@@ -26,3 +32,8 @@
       helm install --kubeconfig /etc/rancher/k3s/k3s.yaml --values /tmp/grafana-values.yaml grafana grafana/grafana 
   - name: Remove loki configuration file
     shell: rm -f /tmp/loki-values.yaml
+  - name: Remove grafana configuration files
+    shell: |
+      rm -rf /tmp/grafana-dashboard-configmap.yaml
+      rm -rf /tmp/grafana-values.yaml
+    
