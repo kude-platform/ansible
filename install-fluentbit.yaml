@@ -4,6 +4,9 @@
   tasks:
   - name: Delete fluent helm charts
     shell: rm -rf /tmp/helm-charts
+  - name: Helm uninstall fluent bit
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml fluent-bit
+    ignore_errors: yes
   - name: Git clone fluent helm charts
     shell: chdir=/tmp git clone https://github.com/fluent/helm-charts.git
   - name: Copy fluent bit values config

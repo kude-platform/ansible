@@ -1,0 +1,14 @@
+- name: Uninstall log analyzer
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy deployment
+    copy:
+      src: ./log-analyzer/log-analyzer.yaml
+      dest: /tmp/log-analyzer.yaml
+  - name: Delete deployment
+    shell: kubectl delete -f /tmp/log-analyzer.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/log-analyzer.yaml

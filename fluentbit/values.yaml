@@ -60,8 +60,8 @@ openShift:
 podSecurityContext: {}
 #   fsGroup: 2000
 
-hostNetwork: false
-dnsPolicy: ClusterFirst
+hostNetwork: true
+dnsPolicy: ClusterFirstWithHostNet
 
 dnsConfig: {}
 #   nameservers:
@@ -407,7 +407,13 @@ config:
         Host        loki
         port        3100
         tenant_id   1
-
+    [OUTPUT]
+        Name        http
+        Match       *
+        Host        localhost
+        Port        8089
+        URI         /ingest/logs
+        Format      json
 
   ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/upstream-servers
   ## This configuration is deprecated, please use `extraFiles` instead.

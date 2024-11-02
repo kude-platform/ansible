@@ -1,0 +1,14 @@
+- name: Install log analyzer
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy deployment
+    copy:
+      src: ./log-analyzer/log-analyzer.yaml
+      dest: /tmp/log-analyzer.yaml
+  - name: Apply deployment
+    shell: kubectl apply -f /tmp/log-analyzer.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/log-analyzer.yaml
