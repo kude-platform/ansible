@@ -7,12 +7,6 @@
   - name: Remove all containers
     shell: sudo k3s ctr image list -q | xargs sudo k3s ctr image del
     ignore_errors: yes
-  - name: Uninstall docker
-    ansible.builtin.apt:
-      state: absent
-      pkg:
-      - docker.io
-      - git
 
 - name: Uninstall k3s bootstrap server
   become: true
@@ -41,3 +35,17 @@
     ansible.builtin.file:
       state: absent
       path: /etc/rancher
+
+
+- name: Uninstall Docker
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Uninstall docker
+    ansible.builtin.apt:
+      state: absent
+      pkg:
+      - docker.io
+      - git
