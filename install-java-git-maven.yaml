@@ -13,7 +13,9 @@
   - name: Update package cache
     ansible.builtin.apt:
       update_cache: yes
-  - name: Install Java
+  - name: Install Java, git and maven
     ansible.builtin.apt:
       pkg:
       - java-11-amazon-corretto-jdk
+      - git
+      - maven
