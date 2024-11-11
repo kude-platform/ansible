@@ -1,4 +1,4 @@
-- name: Uninstall Docker
+- name: Remove all containers
   become: true
   hosts: pies
   tasks:
@@ -48,4 +48,3 @@
       state: absent
       pkg:
       - docker.io
-      - git
