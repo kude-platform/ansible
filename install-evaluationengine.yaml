@@ -1,0 +1,14 @@
+- name: Install evaluation engine
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy evaluation engine deployment
+    copy:
+      src: ./evaluationengine/evaluationengine.yaml
+      dest: /tmp/evaluationengine.yaml
+  - name: Apply deployment
+    shell: kubectl apply -f /tmp/evaluationengine.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/evaluationengine.yaml
