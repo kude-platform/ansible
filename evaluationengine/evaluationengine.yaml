@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: evaluationengine
-        image: registry.local/evaluationengine:0.0.1
+        image: registry.local/evaluation-engine:0.1.0
         ports:
         - containerPort: 8080
 ---
@@ -29,6 +29,6 @@ spec:
     app: evaluationengine
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 8080
   type: LoadBalancer
