@@ -1,0 +1,10 @@
+- name: Install Spark Operator
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Install Spark Operator
+    shell: | 
+      helm repo add spark-operator https://kubeflow.github.io/spark-operator
+      helm repo update
+      helm install spark-operator spark-operator/spark-operator --kubeconfig /etc/rancher/k3s/k3s.yaml
+

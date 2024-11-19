@@ -1,0 +1,7 @@
+- name: Uninstall Spark Operator
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Uninstall Spark Operator
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml spark-operator
+    ignore_errors: yes
