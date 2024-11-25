@@ -1,0 +1,6 @@
+- name: Uninstall Prometheus
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Uninstall Prometheus
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml prometheus
