@@ -1,14 +1,18 @@
 workers:
   hosts:
-    piworker2:
-      ansible_host: pi02
+    piworker13:
+      ansible_host: pi13.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker15:
+      ansible_host: pi15.local
       ansible_user: pi
       ansible_ssh_pass: cluster
 
 bootstrapMaster:
   hosts:
     pimaster:
-      ansible_host: pi01
+      ansible_host: pi14.local
       ansible_user: pi
       ansible_ssh_pass: cluster
 

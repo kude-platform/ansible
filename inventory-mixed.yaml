@@ -5,7 +5,55 @@ workers:
       ansible_user: pi
       ansible_ssh_pass: cluster
     piworker3:
+      ansible_host: pi03.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker4:
+      ansible_host: pi04.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker5:
+      ansible_host: pi05.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker6:
+      ansible_host: pi06.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker7:
+      ansible_host: pi07.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker8:
+      ansible_host: pi08.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker9:
+      ansible_host: pi09.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker10:
+      ansible_host: pi10.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker11:
+      ansible_host: pi11.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker12:
+      ansible_host: pi12.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker13:
       ansible_host: pi13.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker14:
+      ansible_host: pi14.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+    piworker15:
+      ansible_host: pi15.local
       ansible_user: pi
       ansible_ssh_pass: cluster
 
