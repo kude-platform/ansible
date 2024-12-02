@@ -1,0 +1,41 @@
+server:
+  global:
+      scrape_interval: 30s
+
+kube-state-metrics:
+  enabled: true
+  metricLabelsAllowlist:
+    - pods=[evaluation-id]
+alertmanager:
+  config:
+    receivers:
+      - name: default-receiver
+        webhook_configs:
+          - send_resolved: true
+            url: http://192.168.2.1:8080/api/alerts
+    route:
+      group_wait: 0s
+      group_interval: 10s
+      receiver: default-receiver
+      repeat_interval: 10s
+serverFiles:
+  alerting_rules.yml:
+    groups:
+      - name: CpuUsage
+        rules:
+          - alert: AllPodsLowCpuUsage
+            expr: count by (label_evaluation_id) (avg by (pod, label_evaluation_id)((sum by (pod) (rate(container_cpu_usage_seconds_total[1m]))) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3) == 3
+            for: 30s
+            labels:
+              severity: page
+            annotations:
+              description: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
+              summary: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
+          - alert: OnePodLowCpuUsage
+            expr: rate(container_cpu_usage_seconds_total{pod=~"ddm-akka.*"}[1m]) < 0.3
+            for: 60s
+            labels:
+              severity: page
+            annotations:
+              description: 'One pod with name {{ $labels.pod }} has low cpu usage'
+              summary: 'One pod with name {{ $labels.pod }} has low cpu usage'

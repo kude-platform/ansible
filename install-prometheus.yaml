@@ -2,13 +2,22 @@
   become: true
   hosts: bootstrapMaster
   tasks:
+  - name: Copy prometheus configuration file
+    copy:
+      src: ./prometheus/values.yaml
+      dest: /tmp/prometheus-values.yaml
   - name: Install Prometheus
     shell: | 
       helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
       helm repo update
-      helm install prometheus prometheus-community/prometheus --kubeconfig /etc/rancher/k3s/k3s.yaml
+      helm install prometheus prometheus-community/prometheus --kubeconfig /etc/rancher/k3s/k3s.yaml --values /tmp/prometheus-values.yaml
+  - name: Expose Prometheus
+    shell: |
       kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext --overrides '{ "apiVersion": "v1","spec":{"ports": [{"port":80,"protocol":"TCP","targetPort":9090,"nodePort":30103}]}}' --kubeconfig /etc/rancher/k3s/k3s.yaml
-
+    ignore_errors: yes
+  - name: Remove configuration files
+    shell: |
+      rm -rf /tmp/prometheus-values.yaml
 # todo: make global scrape interval configurable kubectl get configmap/prometheus-server --kubeconfig /etc/rancher/k3s/k3s.yaml -o json
 
 
