@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.2.2
+        image: registry.local/evaluation-engine:0.2.5
         ports:
         - containerPort: 8080
 ---

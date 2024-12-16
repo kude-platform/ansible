@@ -13,6 +13,20 @@ loki:
         period: 24h
       object_store: filesystem 
       schema: v13
+  limits_config:
+    max_line_size: 100KB
+    max_line_size_truncate: true
+    retention_period: 48h
+  server:
+    grpc_server_max_recv_msg_size: 419430400
+    grpc_server_max_send_msg_size: 419430400
+  compactor:
+    compaction_interval: 10m
+    retention_enabled: true
+    retention_delete_delay: 1m
+    retention_delete_worker_count: 150
+    delete_request_store: filesystem
+  
 singleBinary:
   replicas: 1
 read:

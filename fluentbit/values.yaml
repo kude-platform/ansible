@@ -407,6 +407,7 @@ config:
         Host        loki
         port        3100
         tenant_id   1
+        compress    gzip
     [OUTPUT]
         Name        http
         Match       *

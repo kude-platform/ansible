@@ -1,0 +1,19 @@
+- name: Install Loki
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Uninstall Loki
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml loki
+    ignore_errors: yes
+  - name: Copy loki configuration file
+    copy:
+      src: ./loki/values.yaml
+      dest: /tmp/loki-values.yaml
+  - name: Install Loki
+    shell: | 
+      helm repo add grafana https://grafana.github.io/helm-charts
+      helm repo update
+      helm install --kubeconfig /etc/rancher/k3s/k3s.yaml --values /tmp/loki-values.yaml loki grafana/loki
+  - name: Remove loki configuration file
+    shell: rm -f /tmp/loki-values.yaml
+    
