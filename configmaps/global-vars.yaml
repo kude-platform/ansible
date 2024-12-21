@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: global-vars
+  namespace: evaluation
+data:
+  evaluation_service_host: "192.168.2.14"

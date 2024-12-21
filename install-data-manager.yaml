@@ -1,0 +1,20 @@
+- name: Create /data directory
+  become: true
+  hosts: pies
+  tasks:
+  - name: Create /data directory
+    shell: mkdir -p /data
+- name: Install data-manager
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy deployment
+    copy:
+      src: ./data-manager/data-manager.yaml
+      dest: /tmp/data-manager.yaml
+  - name: Apply deployment
+    shell: kubectl apply -f /tmp/data-manager.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/data-manager.yaml

@@ -1,0 +1,14 @@
+- name: Install global-vars
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy deployment
+    copy:
+      src: ./configmaps/global-vars.yaml
+      dest: /tmp/global-vars.yaml
+  - name: Apply deployment
+    shell: kubectl apply -f /tmp/global-vars.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/global-vars.yaml

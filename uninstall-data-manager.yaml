@@ -1,0 +1,20 @@
+- name: Delete /data directory
+  become: true
+  hosts: pies
+  tasks:
+  - name: delete /data directory
+    shell: rm -rf /data
+- name: Uninstall data-manager
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Ping host
+    ansible.builtin.ping:
+  - name: Copy deployment
+    copy:
+      src: ./data-manager/data-manager.yaml
+      dest: /tmp/data-manager.yaml
+  - name: Uninstall deployment
+    shell: kubectl delete -f /tmp/data-manager.yaml
+  - name: Remove deployment file
+    shell: rm -f /tmp/data-manager.yaml

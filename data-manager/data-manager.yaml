@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: log-analyzer
+  name: data-manager
   namespace: evaluation
   labels:
-    k8s-app: log-analyzer
+    k8s-app: data-manager
 spec:
   selector:
     matchLabels:
-      name: log-analyzer
+      name: data-manager
   template:
     metadata:
       labels:
-        name: log-analyzer
+        name: data-manager
     spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-      - name: log-analyzer
-        image: registry.local/log-analyzer:0.2.2
+      - name: data-manager
+        image: registry.local/data-manager:0.0.2
         ports:
-          - containerPort: 8089
+          - containerPort: 8090
             protocol: TCP
         env:
           - name: "SERVER_PORT"
-            value: "8089"
+            value: "8090"
           - name: EVALUATION_SERVICE_HOST
             valueFrom:
               configMapKeyRef:
@@ -32,6 +32,8 @@ spec:
                 key: evaluation_service_host
           - name: "EVALUATION_SERVICE_PORT"
             value: "8080"
+          - name: "DATASET_DIR"
+            value: "/data"
         resources:
           limits:
             memory: 50Mi
@@ -39,9 +41,9 @@ spec:
             cpu: 100m
             memory: 25Mi
         volumeMounts:
-        - name: varlog
-          mountPath: /home/logs
+        - name: data
+          mountPath: /data
       volumes:
-      - name: varlog
+      - name: data
         hostPath:
-          path: /var/log
+          path: /data
