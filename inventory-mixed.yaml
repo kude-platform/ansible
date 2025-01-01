@@ -69,5 +69,5 @@ pies:
     bootstrapMaster:
     workers:
   vars:
-    k3s_version: v1.29.7+k3s1
+    k3s_version: v1.31.4+k3s1
     kueue_version: v0.8.0

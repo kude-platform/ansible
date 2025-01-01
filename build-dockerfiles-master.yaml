@@ -1,0 +1,15 @@
+- name: Build dockerfiles and import to all nodes
+  become: true
+  hosts: bootstrapMaster
+  tasks:
+  - name: Delete dockerfiles
+    shell: rm -rf /tmp/dockerfiles
+  - name: Git clone dockerfiles
+    shell: chdir=/tmp git clone https://github.com/kude-platform/dockerfiles.git
+  - name: Build dockerfiles
+    shell: chdir=/tmp/dockerfiles ./build-dockerfiles-master-and-import-to-k3s.sh
+    register: results
+  - debug:
+      var: results.stdout
+  - name: Delete dockerfiles
+    shell: rm -rf /tmp/dockerfiles

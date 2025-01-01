@@ -12,11 +12,11 @@
     copy:
       src: ./evaluationengine-external/external-service.yaml
       dest: /tmp/external-service.yaml
-  - name: Uninstall external service
-    shell: kubectl delete -f /tmp/external-service.yaml
+  - name: Uninstall evaluation engine
+    shell: kubectl delete -f /tmp/evaluationengine.yaml
     ignore_errors: yes
   - name: Apply deployment
-    shell: kubectl apply -f /tmp/evaluationengine.yaml
+    shell: kubectl apply -f /tmp/external-service.yaml
   - name: Remove deployment file
     shell: rm -f /tmp/evaluationengine.yaml
   - name: Remove external service file

@@ -29,6 +29,8 @@ loki:
   
 singleBinary:
   replicas: 1
+  nodeSelector:
+    role: master
 read:
   replicas: 0
 backend:

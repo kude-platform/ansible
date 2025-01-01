@@ -82,4 +82,5 @@
       dest: k3sconfig
       flat: true
 
-- import_playbook: build-dockerfiles.yaml
+ - import_playbook: build-dockerfiles.yaml
+ - import_playbook: label-nodes.yaml

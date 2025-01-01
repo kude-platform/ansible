@@ -33,3 +33,5 @@ dashboardProviders:
         path: /var/lib/grafana/dashboards/default
 dashboardsConfigMaps:
   default: "grafana-dashboards"
+nodeSelector:
+  role: master

@@ -28,11 +28,26 @@ spec:
       labels:
         app: evaluationengine
     spec:
+      nodeSelector:
+        role: master
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.2.5
+        image: registry.local/evaluation-engine:0.3.11
         ports:
         - containerPort: 8080
+        env:
+        - name: "EVALUATION_ENGINE_HOST"
+          valueFrom:
+            configMapKeyRef:
+              name: global-vars
+              key: evaluation_service_host
+        resources:
+            requests:
+              memory: 1Gi
+              cpu: 1
+            limits:
+              memory: 2Gi
+              cpu: 3
 ---
 apiVersion: v1
 kind: Service
