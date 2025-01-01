@@ -28,6 +28,8 @@ spec:
       labels:
         app: evaluationengine
     spec:
+      nodeSelector:
+        role: master
       containers:
       - name: evaluationengine
         image: registry.local/evaluation-engine:0.4.0

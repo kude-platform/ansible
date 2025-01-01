@@ -13,7 +13,7 @@
     copy:
       src: ./evaluationengine/evaluationengine-local.yaml
       dest: /tmp/evaluationengine.yaml
-    when: local_env
+    when: local_env is defined
   - name: Copy evaluation engine external service
     copy:
       src: ./evaluationengine-external/external-service.yaml
