@@ -1,0 +1,18 @@
+workers:
+  hosts:
+
+bootstrapMaster:
+  hosts:
+    pimaster:
+      ansible_host: 127.0.0.1
+      ansible_user: pi
+      ansible_ssh_pass: cluster
+
+pies:
+  children:
+    bootstrapMaster:
+    workers:
+  vars:
+    k3s_version: v1.31.4+k3s1
+    kueue_version: v0.8.0
+    local_env: true

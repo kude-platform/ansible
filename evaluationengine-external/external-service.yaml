@@ -13,7 +13,7 @@ metadata:
   namespace: evaluation
 subsets:
   - addresses:
-      - ip: 192.168.2.14
+      - ip: 192.168.2.20
     ports:
       - port: 8080
 

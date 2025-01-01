@@ -8,6 +8,12 @@
     copy:
       src: ./evaluationengine/evaluationengine.yaml
       dest: /tmp/evaluationengine.yaml
+    when: local_env is undefined
+  - name: Copy evaluation engine deployment local
+    copy:
+      src: ./evaluationengine/evaluationengine-local.yaml
+      dest: /tmp/evaluationengine.yaml
+    when: local_env
   - name: Copy evaluation engine external service
     copy:
       src: ./evaluationengine-external/external-service.yaml

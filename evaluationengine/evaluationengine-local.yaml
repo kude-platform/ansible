@@ -39,6 +39,8 @@ spec:
             configMapKeyRef:
               name: global-vars
               key: evaluation_service_host
+        - name: "NODES_RESERVED_FOR_SYSTEM"
+          value: "0"
         - name: "LOGGING_LEVEL_COM_GITHUB_KUDEPLATFORM"
           value: "debug"
         - name: "USE_WATCH_TO_DETECT_COMPLETION"

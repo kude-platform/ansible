@@ -12,10 +12,22 @@
     copy:
       src: ./loki/values.yaml
       dest: /tmp/loki-values.yaml
+    when: local_env is undefined
+  - name: Copy loki configuration file local
+    copy:
+      src: ./loki/values-local.yaml
+      dest: /tmp/loki-values.yaml
+    when: local_env
   - name: Copy grafana configuration file
     copy:
       src: ./grafana/values.yaml
       dest: /tmp/grafana-values.yaml
+    when: local_env is undefined
+  - name: Copy grafana configuration file local
+    copy:
+      src: ./grafana/values-local.yaml
+      dest: /tmp/grafana-values.yaml
+    when: local_env
   - name: Copy grafana dashboards
     copy:
       src: ./grafana/grafana-dashboard-configmap.yaml
