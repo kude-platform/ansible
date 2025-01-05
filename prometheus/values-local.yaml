@@ -1,20 +1,12 @@
 server:
   global:
-    scrape_interval: 10s
-    scrape_timeout: 5s
-
-  nodeSelector:
-    role: master
-pushgateway:
-  nodeSelector:
-    role: master
+      scrape_interval: 2s
+      scrape_timeout: 1s
 
 kube-state-metrics:
   enabled: true
   metricLabelsAllowlist:
     - pods=[evaluation-id]
-  nodeSelector:
-    role: master
 alertmanager:
   config:
     receivers:
@@ -27,15 +19,13 @@ alertmanager:
       group_interval: 120s
       receiver: default-receiver
       repeat_interval: 120s
-  nodeSelector:
-    role: master
 serverFiles:
   alerting_rules.yml:
     groups:
       - name: CpuUsage
         rules:
           - alert: AllPodsLowCpuUsage
-            expr: count by (label_evaluation_id)(avg by (pod, label_evaluation_id)(rate(container_cpu_usage_seconds_total[1m]) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3) == 3
+            expr: count by (label_evaluation_id)(avg by (pod, label_evaluation_id)(rate(container_cpu_usage_seconds_total[1m]) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3) == 6
             for: 60s
             labels:
               severity: page

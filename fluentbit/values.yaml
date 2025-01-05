@@ -387,7 +387,7 @@ config:
         Tag kube.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
-        Refresh_Interval 5
+        Refresh_Interval 1
 
 
   ## https://docs.fluentbit.io/manual/pipeline/filters

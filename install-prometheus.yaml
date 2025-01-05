@@ -6,6 +6,18 @@
     copy:
       src: ./prometheus/values.yaml
       dest: /tmp/prometheus-values.yaml
+    when: local_env is undefined
+  - name: Copy prometheus configuration file local
+    copy:
+      src: ./prometheus/values-local.yaml
+      dest: /tmp/prometheus-values.yaml
+    when: local_env is defined
+  - name: Uninstall Prometheus
+    shell: helm uninstall --kubeconfig /etc/rancher/k3s/k3s.yaml prometheus
+    ignore_errors: yes
+  - name: Uninstall Prometheus ext service
+    shell: kubectl delete service prometheus-server-ext --kubeconfig /etc/rancher/k3s/k3s.yaml
+    ignore_errors: yes
   - name: Install Prometheus
     shell: | 
       helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -19,5 +31,3 @@
     shell: |
       rm -rf /tmp/prometheus-values.yaml
 # todo: make global scrape interval configurable kubectl get configmap/prometheus-server --kubeconfig /etc/rancher/k3s/k3s.yaml -o json
-
-
