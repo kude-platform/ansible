@@ -1,28 +1,39 @@
-#- name: Install Docker
-#  become: true
-#  hosts: pies
-#  tasks:
-#  - name: Ping hosts
-#    ansible.builtin.ping:
-#  - name: Update package cache
-#    ansible.builtin.apt:
-#      update_cache: yes
-#  - name: Install docker
-#    ansible.builtin.apt:
-#      pkg:
-#      - docker.io
-#      - git
-#  - name: Check if cgroups are enabled
-#    command: cat /boot/firmware/cmdline.txt
-#    register: cmdlineContent
-#  - name: Enable cgroups
-#    command: sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1/' /boot/firmware/cmdline.txt
-#    when: "'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1' not in cmdlineContent.stdout"
-#    notify:
-#    - Restart pi
-#  handlers:
-#  - name: Restart pi
-#    ansible.builtin.reboot:
+- name: Remove /home/pi/BDS/outputs
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Remove outputs
+    ansible.builtin.file:
+      state: absent
+      path: /home/pi/BDS/outputs
+- name: Install Docker
+  become: true
+  hosts: pies
+  tasks:
+  - name: Ping hosts
+    ansible.builtin.ping:
+  - name: Update package cache
+    ansible.builtin.apt:
+      update_cache: yes
+    ignore_errors: yes
+  - name: Install docker
+    ansible.builtin.apt:
+      pkg:
+      - docker.io
+      - git
+  - name: Check if cgroups are enabled
+    command: cat /boot/firmware/cmdline.txt
+    register: cmdlineContent
+  - name: Enable cgroups
+    command: sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1/' /boot/firmware/cmdline.txt
+    when: "'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1' not in cmdlineContent.stdout"
+    notify:
+    - Restart pi
+  handlers:
+  - name: Restart pi
+    ansible.builtin.reboot:
 
 - name: Install k3s bootstrap server
   become: true

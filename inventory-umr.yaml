@@ -1,5 +1,9 @@
 workers:
   hosts:
+    piworker1:
+      ansible_host: pi01.local
+      ansible_user: pi
+      ansible_ssh_pass: cluster
     piworker2:
       ansible_host: pi02.local
       ansible_user: pi
@@ -48,7 +52,7 @@ workers:
 bootstrapMaster:
   hosts:
     pimaster:
-      ansible_host: pi01.local
+      ansible_host: pi13.local
       ansible_user: pi
       ansible_ssh_pass: cluster
 

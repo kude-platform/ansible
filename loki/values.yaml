@@ -31,6 +31,8 @@ singleBinary:
   replicas: 1
   nodeSelector:
     role: master
+  persistence:
+    size: 15Gi
 read:
   replicas: 0
 backend:
