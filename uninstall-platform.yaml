@@ -48,3 +48,7 @@
       state: absent
       pkg:
       - docker.io
+  - name: delete /var/lib/docker dir
+    ansible.builtin.file:
+      state: absent
+      path: /var/lib/docker
