@@ -144,7 +144,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 2,
+      "id": 1,
       "links": [],
       "panels": [
         {
@@ -213,7 +213,7 @@ data:
             "x": 0,
             "y": 0
           },
-          "id": 4,
+          "id": 5,
           "options": {
             "legend": {
               "calcs": [],
@@ -234,12 +234,13 @@ data:
                 "uid": "be9y9eh6g4ykga"
               },
               "editorMode": "code",
-              "expr": "container_network_receive_bytes_total{pod=~\"$jobName\"}",
+              "expr": "container_memory_working_set_bytes{pod=~\"$jobName\"}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "Network-Receive-Bytes",
+          "title": "Panel Title",
           "type": "timeseries"
         },
         {
@@ -408,7 +409,7 @@ data:
             "x": 0,
             "y": 8
           },
-          "id": 2,
+          "id": 4,
           "options": {
             "legend": {
               "calcs": [],
@@ -428,18 +429,13 @@ data:
                 "type": "prometheus",
                 "uid": "be9y9eh6g4ykga"
               },
-              "disableTextWrap": false,
               "editorMode": "code",
-              "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\"}[1m])",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "legendFormat": "__auto",
+              "expr": "container_network_receive_bytes_total{pod=~\"$jobName\"}",
               "range": true,
-              "refId": "A",
-              "useBackend": false
+              "refId": "A"
             }
           ],
-          "title": "CPU",
+          "title": "Network-Receive-Bytes",
           "type": "timeseries"
         },
         {
@@ -500,40 +496,15 @@ data:
                 ]
               }
             },
-            "overrides": [
-              {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "{__name__=\"container_memory_working_set_bytes\", beta_kubernetes_io_arch=\"amd64\", beta_kubernetes_io_instance_type=\"k3s\", beta_kubernetes_io_os=\"linux\", container=\"ddm-akka\", id=\"/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod25743840_81fc_4f0a_97af_c1fbbdbd3147.slice/cri-containerd-1839fa595ef402abd01c9615ce3a046bfb9660f6e78d6012a37db6298fdfade2.scope\", image=\"registry.local/akka-tpch-jdk11:0.4.10\", instance=\"pi20\", job=\"kubernetes-nodes-cadvisor\", kubernetes_io_arch=\"amd64\", kubernetes_io_hostname=\"pi20\", kubernetes_io_os=\"linux\", name=\"1839fa595ef402abd01c9615ce3a046bfb9660f6e78d6012a37db6298fdfade2\", namespace=\"evaluation\", node_kubernetes_io_instance_type=\"k3s\", node_role_kubernetes_io_control_plane=\"true\", node_role_kubernetes_io_master=\"true\", p2p_k3s_cattle_io_enabled=\"true\", pod=\"ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c-0-khk9p\", role=\"worker\"}"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
-            "y": 8
+            "x": 0,
+            "y": 16
           },
-          "id": 1,
+          "id": 2,
           "options": {
             "legend": {
               "calcs": [],
@@ -554,18 +525,17 @@ data:
                 "uid": "be9y9eh6g4ykga"
               },
               "disableTextWrap": false,
-              "editorMode": "builder",
-              "expr": "container_memory_working_set_bytes{pod=~\"$jobName\"}",
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\"}[1m])",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
-              "instant": false,
               "legendFormat": "__auto",
               "range": true,
               "refId": "A",
               "useBackend": false
             }
           ],
-          "title": "Memory",
+          "title": "CPU",
           "type": "timeseries"
         }
       ],
@@ -588,7 +558,7 @@ data:
                 "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
               }
             ],
-            "query": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
+            "query": "ddm-akka-2c5736a3-e653-48a9-8493-db0f7c1709b2.*",
             "type": "textbox"
           }
         ]
@@ -599,7 +569,7 @@ data:
       },
       "timepicker": {},
       "timezone": "browser",
-      "title": "Test Image",
+      "title": "Resource Usage",
       "uid": "ee9ya50i64u80c",
       "version": 2,
       "weekStart": ""
