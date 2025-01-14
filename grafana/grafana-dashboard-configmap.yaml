@@ -529,7 +529,7 @@ data:
                   "uid": "be9y9eh6g4ykga"
                 },
                 "editorMode": "code",
-                "expr": "container_memory_working_set_bytes{pod=~\"$jobName\"}",
+                "expr": "container_memory_working_set_bytes{pod=~\"$jobName\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
                 "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
