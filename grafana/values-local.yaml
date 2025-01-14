@@ -7,18 +7,24 @@ service:
   enabled: true
   type: NodePort
   nodePort: 32300
+imageRenderer:
+  enabled: true
 datasources:
   datasources.yaml:
     apiVersion: 1
     datasources:
-    - name: Loki
-      type: loki
-      uid: "P8E80F9AEF21F6940"
-      url: http://loki:3100
-      jsonData:
-        httpHeaderName1: 'X-Scope-OrgID'
-      secureJsonData:
-        httpHeaderValue1: '1'
+      - name: Loki
+        type: loki
+        uid: "P8E80F9AEF21F6940"
+        url: http://loki:3100
+        jsonData:
+          httpHeaderName1: 'X-Scope-OrgID'
+        secureJsonData:
+          httpHeaderValue1: '1'
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-server:80
+        uid: "be9y9eh6g4ykga"
 dashboardProviders:
   dashboardproviders.yaml:
     apiVersion: 1
