@@ -379,7 +379,7 @@ data:
                   "uid": "be9y9eh6g4ykga"
                 },
                 "editorMode": "code",
-                "expr": "container_network_receive_bytes_total{pod=~\"$jobName\", interface=\"eth0\"}",
+                "expr": "container_network_receive_bytes_total{pod=~\"$jobName\"}",
                 "range": true,
                 "refId": "A"
               }
@@ -865,7 +865,7 @@ data:
                 },
                 "disableTextWrap": false,
                 "editorMode": "code",
-                "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\"}[1m])",
+                "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\",container=\"ddm-akka\"}[1m])",
                 "fullMetaSearch": false,
                 "includeNullMetadata": true,
                 "legendFormat": "{{label_name}}",
@@ -1109,7 +1109,7 @@ data:
                   "uid": "be9y9eh6g4ykga"
                 },
                 "editorMode": "code",
-                "expr": "container_memory_working_set_bytes{pod=~\"$jobName\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
+                "expr": "container_memory_working_set_bytes{pod=~\"$jobName\",container=\"ddm-akka\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
                 "legendFormat": "__auto",
                 "range": true,
                 "refId": "A"
