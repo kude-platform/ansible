@@ -124,7 +124,7 @@ data:
       }  
 
   prometheus.json: |
-      {
+    {
         "annotations": {
           "list": [
             {
@@ -205,7 +205,152 @@ data:
                   ]
                 }
               },
-              "overrides": []
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "master"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-1"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-2"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-3"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-4"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-5"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-6"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-7"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-8"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-9"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-10"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-11"
+                    }
+                  ]
+                }
+              ]
             },
             "gridPos": {
               "h": 8,
@@ -234,7 +379,7 @@ data:
                   "uid": "be9y9eh6g4ykga"
                 },
                 "editorMode": "code",
-                "expr": "container_network_receive_bytes_total{pod=~\"$jobName\"}",
+                "expr": "container_network_receive_bytes_total{pod=~\"$jobName\", interface=\"eth0\"}",
                 "range": true,
                 "refId": "A"
               }
@@ -300,7 +445,152 @@ data:
                   ]
                 }
               },
-              "overrides": []
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "master"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-1"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-2"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-3"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-4"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-5"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-6"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-7"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-8"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-9"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-10"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-11"
+                    }
+                  ]
+                }
+              ]
             },
             "gridPos": {
               "h": 8,
@@ -400,7 +690,152 @@ data:
                   ]
                 }
               },
-              "overrides": []
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "master"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-1"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-2"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-3"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-4"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-5"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-6"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-7"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-8"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-9"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-10"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-11"
+                    }
+                  ]
+                }
+              ]
             },
             "gridPos": {
               "h": 8,
@@ -433,7 +868,7 @@ data:
                 "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\"}[1m])",
                 "fullMetaSearch": false,
                 "includeNullMetadata": true,
-                "legendFormat": "__auto",
+                "legendFormat": "{{label_name}}",
                 "range": true,
                 "refId": "A",
                 "useBackend": false
@@ -500,7 +935,152 @@ data:
                   ]
                 }
               },
-              "overrides": []
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "master"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-1"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-2"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-3"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-4"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-5"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-6"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-7"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-8"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-9"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-10"
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byRegexp",
+                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                  },
+                  "properties": [
+                    {
+                      "id": "displayName",
+                      "value": "worker-11"
+                    }
+                  ]
+                }
+              ]
             },
             "gridPos": {
               "h": 8,
@@ -558,7 +1138,7 @@ data:
                   "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
                 }
               ],
-              "query": "ddm-akka-2c5736a3-e653-48a9-8493-db0f7c1709b2.*",
+              "query": "ddm-akka-e335cf0b-94b0-4710-bb05-f13f179c4cd9.*",
               "type": "textbox"
             }
           ]
