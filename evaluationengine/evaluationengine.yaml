@@ -32,7 +32,7 @@ spec:
         role: master
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.4.8
+        image: registry.local/evaluation-engine:0.4.10
         ports:
         - containerPort: 8080
         env:
@@ -43,8 +43,6 @@ spec:
               key: evaluation_service_host
         - name: "LOGGING_LEVEL_COM_GITHUB_KUDEPLATFORM"
           value: "debug"
-        - name: "USE_WATCH_TO_DETECT_COMPLETION"
-          value: "true"
         - name: "GRAFANA_HOST"
           value: "pi13.local:32300"
         - name: "PROMETHEUS_HOST"

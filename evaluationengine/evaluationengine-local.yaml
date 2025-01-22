@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.4.2
+        image: registry.local/evaluation-engine:0.4.10
         ports:
         - containerPort: 8080
         env:
@@ -43,8 +43,6 @@ spec:
           value: "0"
         - name: "LOGGING_LEVEL_COM_GITHUB_KUDEPLATFORM"
           value: "debug"
-        - name: "USE_WATCH_TO_DETECT_COMPLETION"
-          value: "true"
         resources:
             requests:
               memory: 1Gi
