@@ -1,0 +1,12 @@
+- name: Prune images
+  become: true
+  hosts: pies
+  tasks:
+  - name: Prune docker images
+    shell: docker image prune -a -f
+  - name: Prune k3s images
+    shell: k3s crictl rmi --prune
+  - name: Prune evaluation image
+    shell: k3s ctr image list -q | grep registry.local/akka-tpch-jdk11 | xargs k3s ctr image del
+    ignore_errors: yes
+    

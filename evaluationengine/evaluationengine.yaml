@@ -32,7 +32,7 @@ spec:
         role: master
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.4.6
+        image: registry.local/evaluation-engine:0.4.8
         ports:
         - containerPort: 8080
         env:
@@ -49,13 +49,15 @@ spec:
           value: "pi13.local:32300"
         - name: "PROMETHEUS_HOST"
           value: "pi13.local:30103"
+        - name: "NODES_RESERVED_FOR_SYSTEM"
+          value: "2"
         resources:
             requests:
               memory: 1Gi
               cpu: 1
             limits:
               memory: 2Gi
-              cpu: 3
+              cpu: 2
 ---
 apiVersion: v1
 kind: Service
@@ -69,4 +71,5 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+      nodePort: 30270
   type: LoadBalancer

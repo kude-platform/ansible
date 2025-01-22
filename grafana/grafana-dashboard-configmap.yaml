@@ -121,1036 +121,1583 @@ data:
       "uid": "be2n0s0j623ggb",
       "version": 1,
       "weekStart": ""
-      }  
+      }
+
+  prometheus-only-cpu-and-memory.json: |
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 2,
+      "links": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\", container=\"ddm-akka\"}[1m])",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "legendFormat": "{{label_name}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "CPU",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 8
+          },
+          "id": 5,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "editorMode": "code",
+              "expr": "container_memory_working_set_bytes{pod=~\"$jobName\", container=\"ddm-akka\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Memory",
+          "type": "timeseries"
+        }
+      ],
+      "preload": false,
+      "schemaVersion": 40,
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "text": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
+              "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
+            },
+            "label": "Job Name",
+            "name": "jobName",
+            "options": [
+              {
+                "selected": true,
+                "text": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
+                "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
+              }
+            ],
+            "query": "ddm-akka-000cebda-f133-486a-b69e-17665f4c8884.*",
+            "type": "textbox"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-7d",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "browser",
+      "title": "Resource Usage",
+      "uid": "ee9ya50i64u80c",
+      "version": 2,
+      "weekStart": ""
+    }  
 
   prometheus.json: |
     {
-        "annotations": {
-          "list": [
-            {
-              "builtIn": 1,
-              "datasource": {
-                "type": "grafana",
-                "uid": "-- Grafana --"
-              },
-              "enable": true,
-              "hide": true,
-              "iconColor": "rgba(0, 211, 255, 1)",
-              "name": "Annotations & Alerts",
-              "type": "dashboard"
-            }
-          ]
-        },
-        "editable": true,
-        "fiscalYearStartMonth": 0,
-        "graphTooltip": 0,
-        "id": 2,
-        "links": [],
-        "panels": [
+      "annotations": {
+        "list": [
           {
+            "builtIn": 1,
             "datasource": {
-              "type": "prometheus",
-              "uid": "be9y9eh6g4ykga"
+              "type": "grafana",
+              "uid": "-- Grafana --"
             },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "master"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-1"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-2"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-3"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-4"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-5"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-6"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-7"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-8"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-9"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-10"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-11"
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 0
-            },
-            "id": 4,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "pluginVersion": "11.4.0",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "be9y9eh6g4ykga"
-                },
-                "editorMode": "code",
-                "expr": "container_network_receive_bytes_total{pod=~\"$jobName\"}",
-                "range": true,
-                "refId": "A"
-              }
-            ],
-            "title": "Network-Receive-Bytes",
-            "type": "timeseries"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "be9y9eh6g4ykga"
-            },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "master"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-1"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-2"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-3"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-4"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-5"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-6"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-7"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-8"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-9"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-10"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-11"
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 0
-            },
-            "id": 3,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "pluginVersion": "11.4.0",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "be9y9eh6g4ykga"
-                },
-                "disableTextWrap": false,
-                "editorMode": "builder",
-                "expr": "container_network_transmit_bytes_total{pod=~\"$jobName\"}",
-                "fullMetaSearch": false,
-                "includeNullMetadata": true,
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "A",
-                "useBackend": false
-              }
-            ],
-            "title": "Network-Transmit-Bytes",
-            "type": "timeseries"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "be9y9eh6g4ykga"
-            },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "master"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-1"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-2"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-3"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-4"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-5"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-6"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-7"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-8"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-9"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-10"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-11"
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 8
-            },
-            "id": 2,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "pluginVersion": "11.4.0",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "be9y9eh6g4ykga"
-                },
-                "disableTextWrap": false,
-                "editorMode": "code",
-                "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\",container=\"ddm-akka\"}[1m])",
-                "fullMetaSearch": false,
-                "includeNullMetadata": true,
-                "legendFormat": "{{label_name}}",
-                "range": true,
-                "refId": "A",
-                "useBackend": false
-              }
-            ],
-            "title": "CPU",
-            "type": "timeseries"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "be9y9eh6g4ykga"
-            },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "master"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-1"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-2"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-3"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-4"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-5"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-6"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-7"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-8"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-9"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-10"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byRegexp",
-                    "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "worker-11"
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 8
-            },
-            "id": 5,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "pluginVersion": "11.4.0",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "be9y9eh6g4ykga"
-                },
-                "editorMode": "code",
-                "expr": "container_memory_working_set_bytes{pod=~\"$jobName\",container=\"ddm-akka\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "A"
-              }
-            ],
-            "title": "Memory",
-            "type": "timeseries"
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
           }
-        ],
-        "preload": false,
-        "schemaVersion": 40,
-        "tags": [],
-        "templating": {
-          "list": [
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 2,
+      "links": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "id": 4,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
             {
-              "current": {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "editorMode": "code",
+              "expr": "container_network_receive_bytes_total{pod=~\"$jobName\", interface=\"eth0\"}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Network-Receive-Bytes",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 0
+          },
+          "id": 3,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "disableTextWrap": false,
+              "editorMode": "builder",
+              "expr": "container_network_transmit_bytes_total{pod=~\"$jobName\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "Network-Transmit-Bytes",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "rate(container_cpu_usage_seconds_total{pod=~\"$jobName\", container=\"ddm-akka\"}[1m])",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "legendFormat": "{{label_name}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "CPU",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "be9y9eh6g4ykga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-0-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "master"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-1-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-1"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-2-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-2"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-3-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-3"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-4-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-4"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-5-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-5"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-6-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-6"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-7-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-7"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-8-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-8"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-9-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-9"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-10-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-10"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/ddm-akka-\\w*-\\w*-\\w*-\\w*-\\w*-11-\\w*/"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "worker-11"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "id": 5,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "be9y9eh6g4ykga"
+              },
+              "editorMode": "code",
+              "expr": "container_memory_working_set_bytes{pod=~\"$jobName\", container=\"ddm-akka\"} or kube_pod_container_resource_limits{pod=~\"$jobName\", resource=\"memory\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Memory",
+          "type": "timeseries"
+        }
+      ],
+      "preload": false,
+      "schemaVersion": 40,
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "text": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
+              "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
+            },
+            "label": "Job Name",
+            "name": "jobName",
+            "options": [
+              {
+                "selected": true,
                 "text": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
                 "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
-              },
-              "label": "Job Name",
-              "name": "jobName",
-              "options": [
-                {
-                  "selected": true,
-                  "text": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*",
-                  "value": "ddm-akka-fcb9185a-1262-47b5-a0a4-0e0741baf34c.*"
-                }
-              ],
-              "query": "ddm-akka-e335cf0b-94b0-4710-bb05-f13f179c4cd9.*",
-              "type": "textbox"
-            }
-          ]
-        },
-        "time": {
-          "from": "now-7d",
-          "to": "now"
-        },
-        "timepicker": {},
-        "timezone": "browser",
-        "title": "Resource Usage",
-        "uid": "ee9ya50i64u80c",
-        "version": 2,
-        "weekStart": ""
-      }
+              }
+            ],
+            "query": "ddm-akka-000cebda-f133-486a-b69e-17665f4c8884.*",
+            "type": "textbox"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-7d",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "browser",
+      "title": "Resource Usage All",
+      "uid": "eeaquzdqx3q4gb",
+      "version": 2,
+      "weekStart": ""
+    }

@@ -1,5 +1,9 @@
 deploymentMode: SingleBinary
 loki:
+  ingester_client:
+      remote_timeout: 10s
+  ingester:
+    chunk_encoding: snappy
   commonConfig:
     replication_factor: 1
   storage:
@@ -16,8 +20,10 @@ loki:
   limits_config:
     max_line_size: 100KB
     max_line_size_truncate: true
-    retention_period: 48h
+    retention_period: 4800h
   server:
+    http_server_read_timeout: 600s
+    http_server_write_timeout: 600s
     grpc_server_max_recv_msg_size: 419430400
     grpc_server_max_send_msg_size: 419430400
   compactor:
@@ -33,6 +39,13 @@ singleBinary:
     role: master
   persistence:
     size: 15Gi
+  resources:
+    requests:
+      cpu: 1
+      memory: 1Gi
+    limits:
+      cpu: 2
+      memory: 2Gi
 read:
   replicas: 0
 backend:
