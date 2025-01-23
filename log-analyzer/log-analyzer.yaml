@@ -36,6 +36,8 @@ spec:
                 key: evaluation_service_host
           - name: "EVALUATION_SERVICE_PORT"
             value: "8080"
+          - name: "GENERIC_EXCEPTION_PATTERNS"
+            value: "Exception,Error,error,exception"
         resources:
           limits:
             memory: 50Mi
