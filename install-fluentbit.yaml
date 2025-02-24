@@ -13,6 +13,12 @@
     copy:
       src: ./fluentbit/values.yaml
       dest: /tmp/helm-charts/charts/fluent-bit/values.yaml
+    when: local_env is undefined
+  - name: Copy fluent bit values config local
+    copy:
+      src: ./fluentbit/values-local.yaml
+      dest: /tmp/helm-charts/charts/fluent-bit/values.yaml
+    when: local_env is defined
   - name: Helm install fluent bit
     shell: chdir=/tmp/helm-charts/charts/fluent-bit helm install --kubeconfig /etc/rancher/k3s/k3s.yaml fluent-bit .
     register: results

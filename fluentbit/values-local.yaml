@@ -384,24 +384,32 @@ config:
         Name tail
         Path /var/log/containers/ddm*.log
         multiline.parser docker, cri
-        Tag kube.*
+        Tag kube.<namespace_name>.<pod_name>.<container_name>
+        Tag_Regex (?<pod_name>[a-z0-9](?:[-a-z0-9]*[a-z0-9])?(?:\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)_(?<namespace_name>[^_]+)_(?<container_name>.+)-(?<container_id>[a-z0-9]{64})\.log$
         Mem_Buf_Limit 500MB
         Skip_Long_Lines On
         Refresh_Interval 1
-
 
   ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
     [FILTER]
         Name kubernetes
-        Match kube.*
+        Match_Regex ^kube\..*$
         Merge_Log On
         Keep_Log Off
         K8S-Logging.Parser On
         K8S-Logging.Exclude On
     [FILTER]
-        Name     throttle
-        Match    *
+        Name     throttle-instance-0
+        Match_regex ^kube\.evaluation\.ddm-akka-.*-.*-.*-.*-.*-0-.*\.ddm-akka$
+        Log_Level error
+        Rate     250
+        Window   30
+        Interval 1s
+    [FILTER]
+        Name     throttle-instance-1
+        Match_regex ^kube\.evaluation\.ddm-akka-.*-.*-.*-.*-.*-1-.*\.ddm-akka$
+        Log_Level error
         Rate     250
         Window   30
         Interval 1s
@@ -435,6 +443,11 @@ config:
         Time_Keep Off
         Time_Key time
         Time_Format %Y-%m-%dT%H:%M:%S.%L
+    
+    [PARSER]
+        Name                           kubernetes-tag
+        Format                         regex
+        Regex                          ^kubernetes\.[^.]+\.(?<namespace_name>[^.]+)\.(?<pod_name>[^.]+)\.(?<container_name>[^.]+)$
 
   # This allows adding more files with arbitrary filenames to /fluent-bit/etc/conf by providing key/value pairs.
   # The key becomes the filename, the value becomes the file content.
