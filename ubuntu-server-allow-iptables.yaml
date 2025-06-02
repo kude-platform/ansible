@@ -1,0 +1,14 @@
+- name: allow icmp on workers
+  become: true
+  hosts: workers
+  tasks:
+  - name: allow icmp on workers input
+    shell: sudo iptables -A INPUT -p icmp -j ACCEPT
+  - name: allow icmp on workers output 
+    shell: sudo iptables -A OUTPUT -p icmp -j ACCEPT
+  - name: Install iptables-persistent
+    ansible.builtin.apt:
+      pkg:
+      - iptables-persistent
+  - name: Save iptables rules
+    shell: sudo netfilter-persistent save
