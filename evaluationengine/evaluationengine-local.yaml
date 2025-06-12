@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.4.10
+        image: registry.local/evaluation-engine:0.4.11
         ports:
         - containerPort: 8080
         env:
@@ -42,7 +42,11 @@ spec:
         - name: "NODES_RESERVED_FOR_SYSTEM"
           value: "0"
         - name: "LOGGING_LEVEL_COM_GITHUB_KUDEPLATFORM"
-          value: "debug"
+          value: "info"
+        - name: "GRAFANA_HOST"
+          value: "pi20.local:32300"
+        - name: "PROMETHEUS_HOST"
+          value: "pi20.local:30103"
         resources:
             requests:
               memory: 1Gi

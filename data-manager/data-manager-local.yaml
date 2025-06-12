@@ -36,7 +36,8 @@ spec:
             value: "/data"
         resources:
           limits:
-            memory: 50Mi
+            memory: 500Mi
+            cpu: 500m
           requests:
             cpu: 100m
             memory: 25Mi

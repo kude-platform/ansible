@@ -14,6 +14,12 @@
     copy:
       src: ./data-manager/data-manager.yaml
       dest: /tmp/data-manager.yaml
+    when: local_env is undefined
+  - name: Copy deployment local
+    copy:
+      src: ./data-manager/data-manager-local.yaml
+      dest: /tmp/data-manager.yaml
+    when: local_env is defined
   - name: Apply deployment
     shell: kubectl apply -f /tmp/data-manager.yaml
   - name: Remove deployment file

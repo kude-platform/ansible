@@ -9,6 +9,12 @@
     copy:
       src: ./loki/values.yaml
       dest: /tmp/loki-values.yaml
+    when: local_env is undefined
+  - name: Copy loki configuration file local
+    copy:
+      src: ./loki/values-local.yaml
+      dest: /tmp/loki-values.yaml
+    when: local_env is defined
   - name: Install Loki
     shell: | 
       helm repo add grafana https://grafana.github.io/helm-charts

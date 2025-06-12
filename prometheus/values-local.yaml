@@ -1,13 +1,22 @@
 server:
   global:
-      scrape_interval: 2s
-      scrape_timeout: 1s
-
+    scrape_interval: 20s
+    scrape_timeout: 5s
+  resources:
+    requests:
+      cpu: 1
+      memory: 1Gi
+    limits:
+      cpu: 2
+      memory: 2Gi
+pushgateway:
+  enabled: true
 kube-state-metrics:
   enabled: true
   metricLabelsAllowlist:
     - pods=[evaluation-id]
 alertmanager:
+  enabled: true
   config:
     receivers:
       - name: default-receiver
@@ -24,17 +33,17 @@ serverFiles:
     groups:
       - name: CpuUsage
         rules:
-          - alert: AllPodsLowCpuUsage
-            expr: count by (label_evaluation_id)(avg by (pod, label_evaluation_id)(rate(container_cpu_usage_seconds_total[1m]) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3) == 6
-            for: 60s
-            labels:
-              severity: page
-            annotations:
-              description: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
-              summary: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
+#          - alert: AllPodsLowCpuUsage
+#            expr: count by (label_evaluation_id)(avg by (pod, label_evaluation_id)(rate(container_cpu_usage_seconds_total[1m]) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3) == 6
+#            for: 30s
+#            labels:
+#              severity: page
+#            annotations:
+#              description: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
+#              summary: 'All pods of evaluation {{ $labels.label_evaluation_id }} have low cpu usage'
           - alert: OnePodLowCpuUsage
             expr: (rate(container_cpu_usage_seconds_total[1m]) * on (pod) group_left (label_evaluation_id) kube_pod_labels{label_evaluation_id!=""}) < 0.3
-            for: 60s
+            for: 30s
             labels:
               severity: page
             annotations:
