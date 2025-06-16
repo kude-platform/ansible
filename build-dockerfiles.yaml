@@ -1,6 +1,6 @@
 - name: Build dockerfiles and import to master, Spegel will mirror the images to the workers
   become: true
-  hosts: bootstrapMaster
+  hosts: pies
   tasks:
   - name: Delete dockerfiles
     shell: rm -rf /tmp/dockerfiles
