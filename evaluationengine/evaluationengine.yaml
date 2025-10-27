@@ -48,7 +48,7 @@ spec:
         - name: "PROMETHEUS_HOST"
           value: "pi13.local:30103"
         - name: "NODES_RESERVED_FOR_SYSTEM"
-          value: "2"
+          value: "1"
         resources:
             requests:
               memory: 1Gi
