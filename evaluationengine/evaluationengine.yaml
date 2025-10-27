@@ -32,7 +32,7 @@ spec:
         role: master
       containers:
       - name: evaluationengine
-        image: registry.local/evaluation-engine:0.4.14
+        image: registry.local/evaluation-engine:0.5.0
         ports:
         - containerPort: 8080
         env:
