@@ -48,10 +48,6 @@ workers:
       ansible_host: pi12.local
       ansible_user: pi
       ansible_ssh_pass: cluster
-    pimaster2:
-      ansible_host: pi14.local
-      ansible_user: pi
-      ansible_ssh_pass: cluster
 
 bootstrapMaster:
   hosts:
